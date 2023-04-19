@@ -70,7 +70,8 @@ public List<Patient> listPatient( ){
                       @RequestParam(defaultValue = "0") int page,
                       @RequestParam(defaultValue = "") String keyword){
         if(bindingResult.hasErrors())  return "formPatients";
-       patientRepository.save(patient);
+           if (patient.getMalade()==null) patient.setMalade(false);
+           patientRepository.save(patient);
        return "redirect:/index?page=" +page+"&keyword="+keyword;
 
 }

@@ -16,10 +16,10 @@
 <div layout:fragment="content1">
     <div class="col-md-6 offset-3">
         <form method="post" th:action="@{save(page=${currentPage}, keyword=${keyword})}" >
-            <div>
-                <label >ID</label>
-                <input  class="form-control" type="text" disabled name="id"  th:value="${patient.Id} ">
-<!--                <span class="text-danger" th:errors="${patient.Id}"></span>-->
+            <div class="mb-3 mt-3">
+                <label for="id" class="form-label">ID:</label>
+                <label th:text="${patient.id}"></label>
+                <input type="hidden" class="form-control" id="id" placeholder="ID" name="id" th:value="${patient.id}">
             </div>
             <div>
                 <label >Nom</label>
@@ -31,10 +31,10 @@
                 <input class="form-control" type="date" name="dateNaissance" th:value="${patient.dateNaissance}">
                 <span class="text-danger" th:errors="${patient.dateNaissance}"></span>
             </div>
-            <div>
-                <label>Malade</label>
-                <input type="checkbox" name="malade" th:checked="${patient.malade}">
-                <span class="text-danger" th:errors="${patient.malade}"></span>
+            <div class="form-check mb-3">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="malade"> Malade
+                </label>
             </div>
             <div>
                 <label>Score</label>
